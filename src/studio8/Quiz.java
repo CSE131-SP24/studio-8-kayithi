@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Quiz {
 
 	private Question[] questions;
+	private int score;
 	
 	public Quiz(Question[] questions) {
 		this.questions = questions;
@@ -26,7 +27,12 @@ public class Quiz {
 	}
 	
 	public void takeQuiz() {
-		//FIXME
+		for(int i = 0; i<questions.length; i++) {
+			questions[i].displayPrompt();
+			questions[i].checkAnswer(getUserAnswer());
+		}
+		score = getTotalPoints();
+		System.out.print(score);
 	}
 	
 	public static void main(String[] args) {
